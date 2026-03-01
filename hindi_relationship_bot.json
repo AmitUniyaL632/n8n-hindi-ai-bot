@@ -92,7 +92,7 @@
             {
               "id": "16e0bb5e-95cf-437b-a2d9-3d74452f0547",
               "leftValue": "={{ $json.result.from.id }}",
-              "rightValue": 6668895636,
+              "rightValue": *********,
               "operator": {
                 "type": "number",
                 "operation": "equals"
@@ -101,7 +101,7 @@
             {
               "id": "9aec2e54-1ddd-4cac-b7c3-57a87a69dd30",
               "leftValue": "={{ $json.result.chat.id }}",
-              "rightValue": 8658240310,
+              "rightValue": *********,
               "operator": {
                 "type": "number",
                 "operation": "equals"
@@ -248,4 +248,5 @@
     "instanceId": "bc66392907c874def5be0eac79e4be6e056349f434fc76ef198b62af053d3c26"
   }
 }
+
 
