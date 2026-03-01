@@ -1,0 +1,251 @@
+
+
+{
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 9-21 * * *"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -1536,
+        -160
+      ],
+      "id": "29dc0f9c-60b5-4d95-997f-edf2f29c179b",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "You are a witty Bollywood scriptwriter. Write one cheesy, funny, and romantic relationship pick-up line in Hindi (using Devanagari script). It should be 'filmy' and lighthearted. \nAdd one more line with text \"Sent from Amit's Heart (add a red heart) because he is missing you.\". \n\nOutput only the Hindi line nothing else.",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        -1072,
+        -160
+      ],
+      "id": "f2ba5bc8-49d7-4139-850d-3ded08e9c3b7",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": "llama3:latest",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
+      "typeVersion": 1,
+      "position": [
+        -1072,
+        32
+      ],
+      "id": "4f6bdad7-4363-4951-b1d7-a5c75dd4a1ce",
+      "name": "Ollama Chat Model",
+      "credentials": {
+        "ollamaApi": {
+          "id": "niL737vO49QoCeh5",
+          "name": "Ollama account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Code in JavaScript').item.json.chat_id }}",
+        "text": "={{ $json.output }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        -656,
+        -160
+      ],
+      "id": "82123d01-4542-4787-96e4-f2d7f322ab3c",
+      "name": "Send a text message",
+      "webhookId": "3ab57a88-98b5-4a3d-ab7c-f6d22b958e16",
+      "credentials": {
+        "telegramApi": {
+          "id": "CG5eOQW2iWw2S5YV",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "16e0bb5e-95cf-437b-a2d9-3d74452f0547",
+              "leftValue": "={{ $json.result.from.id }}",
+              "rightValue": 6668895636,
+              "operator": {
+                "type": "number",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "9aec2e54-1ddd-4cac-b7c3-57a87a69dd30",
+              "leftValue": "={{ $json.result.chat.id }}",
+              "rightValue": 8658240310,
+              "operator": {
+                "type": "number",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -448,
+        -160
+      ],
+      "id": "fbad813d-7162-4fa9-a4d7-5e00bbb1f137",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "chatId": "854033576",
+        "text": "You are not authorized to use this bot. Please leave now. \\n \\n Self Distruct Sequence Start \\n 10 \\n9 \\n 8 \\n 7 \\n 6 \\n 5 \\n 4 \\n 3  \\n 2 \\n 1 \\n BOOM..\\n Sorry for fun.",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        -240,
+        0
+      ],
+      "id": "7060db0d-d5fe-4cee-a3e7-df0019f8c785",
+      "name": "Send a text message1",
+      "webhookId": "3ab57a88-98b5-4a3d-ab7c-f6d22b958e16",
+      "credentials": {
+        "telegramApi": {
+          "id": "CG5eOQW2iWw2S5YV",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "return [\n  { json: { chat_id: \"854033576\" } },\n  { json: { chat_id: \"6668895636\" } }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1328,
+        -160
+      ],
+      "id": "24b319cc-2207-4f9d-8bdc-88ff8ec1b0ed",
+      "name": "Code in JavaScript"
+    }
+  ],
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ollama Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send a text message": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Send a text message1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {
+    "Schedule Trigger": [
+      {
+        "timestamp": "2026-03-01T09:15:48.718-05:00",
+        "Readable date": "March 1st 2026, 9:15:48 am",
+        "Readable time": "9:15:48 am",
+        "Day of week": "Sunday",
+        "Year": "2026",
+        "Month": "March",
+        "Day of month": "01",
+        "Hour": "09",
+        "Minute": "15",
+        "Second": "48",
+        "Timezone": "India (UTC+05:00)"
+      }
+    ]
+  },
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "bc66392907c874def5be0eac79e4be6e056349f434fc76ef198b62af053d3c26"
+  }
+}
+
