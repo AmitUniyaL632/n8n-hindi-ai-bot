@@ -25,7 +25,7 @@
     {
       "parameters": {
         "promptType": "define",
-        "text": "You are a witty Bollywood scriptwriter. Write one cheesy, funny, and romantic relationship pick-up line in Hindi (using Devanagari script). It should be 'filmy' and lighthearted. \nAdd one more line with text \"Sent from Amit's Heart (add a red heart) because he is missing you.\". \n\nOutput only the Hindi line nothing else.",
+        "text": "You are a witty Bollywood scriptwriter. Write one cheesy, funny, and romantic relationship pick-up line in Hindi (using Devanagari script). It should be 'filmy' and lighthearted. \n Add one more line with text \"Sent from User's Heart (add a red heart) because he is missing you.\". \n \n Output only the Hindi line nothing else.",
         "options": {}
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
@@ -123,7 +123,7 @@
     },
     {
       "parameters": {
-        "chatId": "854033576",
+        "chatId": "***********",
         "text": "You are not authorized to use this bot. Please leave now. \\n \\n Self Distruct Sequence Start \\n 10 \\n9 \\n 8 \\n 7 \\n 6 \\n 5 \\n 4 \\n 3  \\n 2 \\n 1 \\n BOOM..\\n Sorry for fun.",
         "additionalFields": {}
       },
@@ -145,7 +145,7 @@
     },
     {
       "parameters": {
-        "jsCode": "return [\n  { json: { chat_id: \"854033576\" } },\n  { json: { chat_id: \"6668895636\" } }\n];"
+        "jsCode": "return [\n  { json: { chat_id: \"*******\" } },\n  { json: { chat_id: \"********\" } }\n];"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
@@ -248,5 +248,6 @@
     "instanceId": "bc66392907c874def5be0eac79e4be6e056349f434fc76ef198b62af053d3c26"
   }
 }
+
 
 
