@@ -20,4 +20,6 @@ A fun automation project that uses local AI to generate and send cheesy Hindi re
 4. **Activate:** Set the workflow to 'Active' and enjoy!
 
 ## 📸 Workflow Preview
-![Workflow Screenshot](Add a screenshot of your n8n canvas here!)
+![Workflow Screenshot]
+<img width="1563" height="637" alt="image" src="https://github.com/user-attachments/assets/7e8ae51e-1515-4d4a-b929-bdcde025a7aa" />
+
