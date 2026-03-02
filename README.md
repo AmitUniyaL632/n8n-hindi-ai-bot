@@ -21,7 +21,8 @@ A fun automation project that uses local AI to generate and send cheesy Hindi re
 
 ## 📸 Workflow Preview
 ![Workflow Screenshot]
-<img width="1563" height="637" alt="image" src="https://github.com/user-attachments/assets/7e8ae51e-1515-4d4a-b929-bdcde025a7aa" />
+<img width="1654" height="861" alt="image" src="https://github.com/user-attachments/assets/56907bb6-cd6c-457c-8ddb-cebfb905d04f" />
+
 
 🛠️ Installation & Setup
 To get this bot running on your own n8n instance, follow these steps:
