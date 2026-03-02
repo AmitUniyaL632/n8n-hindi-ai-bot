@@ -62,11 +62,11 @@ Flip the toggle in the top right to Active. Your bot is now live!
 💡 How the Logic Works
 The workflow follows a linear path:
 
-Trigger: A cron job fires every hour between 9 AM and 9 PM.
+Trigger: A cron job fires every hour between 9 AM and 6 PM once every 3 hours, to reduce the number of tokens from Ollama.
 
 Data Prep: A JavaScript snippet creates a list of recipients.
 
-AI Generation: Ollama receives the "Letter of the Day" and generates a unique Hindi sentence.
+AI Generation: Ollama generates a unique Hindi sentence.
 
 Delivery: The Telegram node loops through the recipient list and delivers the message.
 
